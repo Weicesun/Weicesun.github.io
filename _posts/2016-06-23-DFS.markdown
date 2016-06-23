@@ -1,0 +1,23 @@
+---
+layout: post
+title:  "GFS paper"
+date:   2016-06-23 +0800
+categories: system
+---
+##Distributed file system (GFS hadoop Amazon S3): 
+
+We should use master slave model. Master is responsible for the recovery of the slave and the client gets granted to access chunk server through master.
+
+DFS is aimed to deal with PT data so we should increase the chunks that save the file. Each chunk server save certain mount of file and master save the meta data which is the chunk location. 
+
+How to write: we divide a file into n chunk, every chunk has its chunk id. When client want to write into certain chunk id, it will send its info to master. Master will send back chunk server location and the handle of the file. Then all the activities are all about chunk and client and chunk server this is will reduce the pressure of the master. Since it may suffer from single point failure. 
+
+How to read: read is similar to write. However, there is way to accelerate the process because we need to write three copies. When the client start to write it will select the nearest server as leader and then start to write only to this server. The leader will coordinate with other server about the write. They all write to their cache. After all the write is finish the leader will ask all the three server to write to db at the same time. 
+
+How to decide chunk on the server is broken:
+Use check sum when client reads the file when you find one block is broken then the chunk server will ask master the location of certain chunk, when it get the location from master it will talk to other chunk server for the block. 
+
+
+read [reference]
+
+[reference]: http://static.googleusercontent.com/media/research.google.com/zh-CN//archive/gfs-sosp2003.pdf
