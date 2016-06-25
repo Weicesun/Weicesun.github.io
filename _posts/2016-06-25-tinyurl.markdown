@@ -1,0 +1,32 @@
+---
+layout: post
+title:  "url shortener"
+date:   2016-06-25 +0800
+categories: system
+---
+Recently I am working on url shortener in django. Share some design overview from industry.
+
+#Main system
+Data need: Even with 100m user
+Average qps and peak qps for write is 100 and 300
+Average use and peak use is about 1k and 3k
+Assume every entry need 100 byte daily total is 1G
+
+Convert algorithm:
+Base 62
+Evolve: Cache to facilitate the read option
+Different server based on the user’s location 
+One Mysql server and many memcached
+Sharding use the firt bit of the tiny url to specific the database to use. Also we use geo information to shard the database.
+Custom url need to set up a new table to fill the need
+
+#Rate limiter:
+Do not need persistent so use memcached 
+1.	Divide by times (block the good one)
+2.	Token bucket (false positive)
+3.	Use memcached to calculate the sum of the 
+4.	Given time generate token for the application to use.
+
+#Data Dog:
+In order to analyses we need persistent storage so NoSQL will be better. When the application is running it should continue compress the data in the log. For example, we should count every second visit with in 5 min, every minute visit in 1 hour and every hour in one day. 
+When you find the value is large you need to trigger the aggregate function to reduce the data storage.
