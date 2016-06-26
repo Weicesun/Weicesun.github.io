@@ -1,0 +1,18 @@
+---
+layout: post
+title:  "intent"
+date:   2016-06-26 +0800
+categories: android
+---
+#How to navigate through different activities
+
+Intent is like an envelope in android to send message and call it can also use to jump from one activity to another.
+
+Intent can save you from invent wheels, like you can use google map app to help you get the geo location.
+
+Past code for reference usually in onclick method
+{% highlight ruby %}
+ Intent intent = new Intent(getActivity(), DetailActivity.class)
+                        .putExtra(Intent.EXTRA_TEXT, forecast);
+                startActivity(intent);
+{% endhighlight %}
