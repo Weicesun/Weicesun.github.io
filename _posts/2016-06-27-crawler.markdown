@@ -1,0 +1,23 @@
+---
+layout: post
+title:  "crawler"
+date:   2016-06-27 +0800
+categories: system
+---
+Web crawler can be implemented in multilevel. One single thread, multiple thread, distributed web crawler.
+Simple version get one page (python)
+
+{% highlight ruby %}
+ import urllib2
+url = ‘http://tech.163.com/it’ 
+request = urllib2.Request(url) 
+response = urllib2.urlopen(request) 
+page = response.read() 
+{% endhighlight %}
+
+For multithread producer consumer in Python:
+http://agiliq.com/blog/2013/10/producer-consumer-problem-in-python/
+
+Distributed is needed because the network limit the port number limit and cpu context switch.
+We need to design a task table it should have url status priority and next available time. url status can be classify as “new”, “processing”, “done”
+For schedule we can use condition variable or semaphore to achieve the goal. 
