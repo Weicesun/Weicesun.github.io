@@ -1,0 +1,14 @@
+---
+layout: post
+title:  "Some thought after reading Bigtable"
+date:   2016-06-30 +0800
+categories: system
+---
+Bigtable is google's NoSQL database that is built on the top of GFS. It use some distributed system technology to handle realy huge data.
+
+#BigTable:
+
+NoSQL database it has some small table server and it has master slave architecture and distributed lock. Master is responsible for health check, share file and load balance. Distributed lock is used for updating and maintaining meta data and lock.
+
+How to generate word order sstable: we write to memory and when the size reach certain amount we put the sstable to GFS. This can make the info duplicated and the info is hard to lose. In case of fail we use write ahead log. In order to make the file read faster we should build index. Because in disk the information is sorted so we just need to binary search the index in to certain range in memory and then turn to disk read. The fastest way is use bloomfilter to check each server whether they have or not. 
+
