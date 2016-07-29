@@ -23,3 +23,5 @@ When to deal with fast access we can also add cache and load balancer. However l
 
 Proxy can also decrease the response time. A proxy can filter request log request and sometimes transform request. Proxy server can clapse the result and return the response to the server. 
 
+The way to increase the efficiency of writing is to add Message queue to make the task become asynchronous
+
