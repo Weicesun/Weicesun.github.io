@@ -61,5 +61,20 @@ The parallel list ranker:
 2. List ranking is basically an addscan
 3. Use the jump primitive to divide and conquer.
 
+# Tree
+
+Step1: number the node
+Step2: store the node of the parent in the array
+
+To find ­the root of the tree:
+[1]Pick any node
+[2]Follow the parent pointers until you reach the root. The root is a node with no parent. It will run O(n).
+
+A scheme is needed to break the symmetry.
+­[1]For each node flip a coin. Heads Pr[heads] = Pr[tails] = 1⁄2
+­[2]Heads will be included in the independent set and tails will be left out.
+­[3]There is a possibility that a node and its neighbor are both heads.
+­[4]In this case change the head into a tail, so any head is adjacent to a tail
+
 
 
