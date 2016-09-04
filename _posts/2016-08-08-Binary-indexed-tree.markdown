@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Talk about BIT"
-date:   2016-07-29 +0800
+date:   2016-08-08 +0800
 categories: algorithm
 ---
 
