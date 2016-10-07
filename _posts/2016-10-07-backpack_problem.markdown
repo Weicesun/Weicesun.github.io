@@ -5,11 +5,11 @@ date:   2016-10-07 +0800
 categories: algorithm
 ---
 
-#Just finished midterm exam. I want to share some idea about backpack problem.
+# Just finished midterm exam. I want to share some idea about backpack problem.
 
 The idea is not mine but these solutions are pretty clear.
 
-##No.1
+## No.1
 
 Given n items with size Ai, an integer m denotes the size of a backpack. How full you can fill this backpack?
 {% highlight java %}
@@ -29,7 +29,7 @@ Given n items with size Ai, an integer m denotes the size of a backpack. How ful
 
 {% endhighlight %}
 
-##No.2
+## No.2
 
 Given n items with size Ai and value Vi, and a backpack with size m. What's the maximum value can you put into the backpack?
 
@@ -50,7 +50,7 @@ Given n items with size Ai and value Vi, and a backpack with size m. What's the 
 
 {% endhighlight %}
 
-##No.3
+## No.3
 
 Given n kind of items with size Ai and value Vi( each item has an infinite number available) and a backpack with size m. What's the maximum value can you put into the backpack?
 
@@ -71,7 +71,7 @@ Given n kind of items with size Ai and value Vi( each item has an infinite numbe
 
 {% endhighlight %}
 
-##No.4
+## No.4
 
 Given n items with size nums[i] which an integer array and all positive numbers, no duplicates. An integer target denotes the size of a backpack. Find the number of possible fill the backpack.
 
@@ -95,7 +95,7 @@ Each item may be chosen unlimited number of times
 
 {% endhighlight %}
 
-##No.5
+## No.5
 
 Given n items with size nums[i] which an integer array and all positive numbers. An integer target denotes the size of a backpack. Find the number of possible fill the backpack.
 
