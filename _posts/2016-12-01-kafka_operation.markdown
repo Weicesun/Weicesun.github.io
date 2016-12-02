@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Kafka basic operation"
-date:   2016-10-07 +0800
+date:   2016-12-01 +0800
 categories: algorithm
 ---
 
